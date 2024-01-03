@@ -6,3 +6,5 @@ let UserDetails = {
 }
 let newPassword= bcrypt.hashSync(UserDetails.password,8);
 console.log(newPassword);
+
+//compare the hashed password with the plain text password
