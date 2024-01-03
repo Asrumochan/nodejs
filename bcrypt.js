@@ -9,5 +9,11 @@ console.log(newPassword);
 
 //compare the hashed password with the plain text password
 UserDetails={...UserDetails,password: newPassword}
-console.log(UserDetails)
+console.log(UserDetails);
+
+//check the password with the normal one 
+
+if (bcrypt.compareSync("123456",UserDetails.password)) {
+    console.log("Password Matched")
+}
 
