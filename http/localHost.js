@@ -6,5 +6,5 @@ const server =http.createServer((req,resp)=>{
 
 server.listen(8000,(err)=>{
     if(err) throw err
-    console.log("Server is running.....")
+    console.log("Server is running....")
 })
