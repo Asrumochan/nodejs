@@ -13,7 +13,10 @@ console.log(UserDetails);
 
 //check the password with the normal one 
 
-if (bcrypt.compare( "123456",UserDetails.password)) {
+if (bcrypt.compareSync("1245",UserDetails.password)) {
     console.log("Password Matched")
+}
+else{
+    console.log("Password did not match");
 }
 
