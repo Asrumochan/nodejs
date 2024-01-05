@@ -14,12 +14,6 @@ let server = http.createServer((req,resp)=>{
         resp.end(data)
     })
    }
-    if(req.url ==="/service"){
-    fs.readFile('views/services.html','utf-8',(err,data)=>{
-        if(err) throw err 
-        resp.end(data)
-    })
-   }
 })
 server.listen(8080,(err)=>{
     if(err) throw err 
