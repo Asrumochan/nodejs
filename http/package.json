@@ -5,9 +5,12 @@
   "type": "module",
   "main": "LocalHost.js",
   "scripts": {
-    "start": "nodemon staticWeb.js"
+    "start": "nodemon LocalHost.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
 }
