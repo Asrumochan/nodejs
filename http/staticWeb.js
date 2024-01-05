@@ -1,6 +1,12 @@
 import http from "http";
+import fs from "fs"
 let server =http.createServer((req,resp)=>{
-    resp.end("<h1>Hello world</h1>")
+    if(req.url ==="/index"){
+        fs.readFile('views/index.html','utf-8',(err,data)=>{
+            if(err) throw err 
+            resp.end(data)
+        })
+       }
 })
 
 server.listen(8080,(err)=>{
