@@ -14,6 +14,12 @@ let server = http.createServer((req,resp)=>{
         resp.end(data)
     })
    }
+   if(req.url ==="/google.com"){
+    fs.readFile('views/about.html','utf-8',(err,data)=>{
+        if(err) throw err 
+        resp.end(data)
+    })
+   }
 })
 server.listen(8080,(err)=>{
     if(err) throw err 

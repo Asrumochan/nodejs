@@ -5,7 +5,7 @@
   "type": "module",
   "main": "LocalHost.js",
   "scripts": {
-    "start": "nodemon LocalHost.js"
+    "start": "nodemon staticWeb.js"
   },
   "keywords": [],
   "author": "",
