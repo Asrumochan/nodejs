@@ -52,9 +52,11 @@ app.put("/update/:id",(req,resp)=>{
 
 app.patch("/patch/:id",(req,resp)=>{
     let id=Number(req.params.id);
-    let emp=req.body.name;
-
-
+    let emp=req.body;
+    let prop=Object.keys(emp)[0];
+    console.log(prop);
+    let val=Object.values(emp)[0];
+    console.log(val);
     let employees=getEmployees()
     let flag=employees.find((employee)=>{
         return employee.id===id;
@@ -69,7 +71,7 @@ app.patch("/patch/:id",(req,resp)=>{
         return employee.id !== id
     })
   
-     let newEmployee1={...newEmployee[0],name:emp}
+      let newEmployee1={...newEmployee[0],[prop]:val}
     newEmployees.push(newEmployee1)
     saveEmployees(newEmployees)
     resp.send({"msg":"data updated"})

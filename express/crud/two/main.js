@@ -1,8 +1,11 @@
-let newEmployee={
-     firstName: "John",
-       name: "Doe",
-      email:"john.doe@example.com"
+let user = {
+    "id":101,
+    "name":"Rahul"
 }
-let nam="asru"
-newEmployee={...newEmployee,name:nam}
-console.log(newEmployee)
+
+let prop = "id"
+let val  = 23 
+
+user = {...user, [prop]:val}
+
+console.log(user)
