@@ -69,10 +69,8 @@ app.patch("/patch/:id",(req,resp)=>{
         return employee.id !== id
     })
   
-     newEmployee={...newEmployee,name:emp}
-     console.log(newEmployee)
-
-    newEmployees.push(newEmployee)
+     let newEmployee1={...newEmployee[0],name:emp}
+    newEmployees.push(newEmployee1)
     saveEmployees(newEmployees)
     resp.send({"msg":"data updated"})
 
