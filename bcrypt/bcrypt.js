@@ -12,7 +12,6 @@ UserDetails={...UserDetails,password: newPassword}
 console.log(UserDetails);
 
 //check the password with the normal one 
-
 if (bcrypt.compareSync("1245",UserDetails.password)) {
     console.log("Password Matched")
 }
