@@ -16,11 +16,27 @@ const fs=require('fs')
 // console.log(result)
 
 // asynchronously
-fs.readFile("./test.txt","utf-8",(err,res)=>{
-    if (err) {
-        console.log('error',err);
-    }
-    else{
-        console.log(res)
-    }
-})
+// fs.readFile("./test.txt","utf-8",(err,res)=>{
+//     if (err) {
+//         console.log('error',err);
+//     }
+//     else{
+//         console.log(res)
+//     }
+// });
+
+// APPEND FILE :
+
+// synchronously
+// fs.appendFileSync("./text.txt","sdfdas")
+
+// asynchronously
+// fs.appendFile("./text.txt",`\n sdfdas`,(err)=>{})
+
+//COPY FILE:
+
+// fs.cpSync("./text.txt","./copy.txt")
+
+// DELETE FILE:
+
+fs.unlinkSync("./text.txt")
