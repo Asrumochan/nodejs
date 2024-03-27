@@ -1,3 +1,4 @@
+
 const fs=require('fs')
 
 // WRITE FILE   :
@@ -39,4 +40,10 @@ const fs=require('fs')
 
 // DELETE FILE:
 
-fs.unlinkSync("./text.txt")
+// fs.unlinkSync("./text.txt")
+
+
+//DIRECTORY 
+// fs.mkdirSync("myFile/a/b",{recursive:true})
+// const a=fs.readdirSync("myFile/a")
+// console.log(a)
