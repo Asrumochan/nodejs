@@ -10,7 +10,7 @@ let server = http.createServer((req,resp)=>{
    }
     if(req.url ==="/about"){
     fs.readFile('views/about.html','utf-8',(err,data)=>{
-        if(err) throw er r 
+        if(err) throw err 
         resp.end(data)
     })
    }
