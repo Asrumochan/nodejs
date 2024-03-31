@@ -5,13 +5,14 @@
   "type": "module",
   "main": "LocalHost.js",
   "scripts": {
-    "start": "nodemon staticWeb.js"
+    "start": "nodemon jurl.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
+    "nodemon": "^3.1.0",
     "url": "^0.11.3"
   }
 }
