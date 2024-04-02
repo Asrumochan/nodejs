@@ -7,7 +7,7 @@ import CreateProduct from './Products/CreateProduct'
 const App = () => {
  return <Fragment>
   <Router>
-        <nav className='navbar navbar-dark bg-dark navbar-expand-lg'>
+        <nav className='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
         <Link to="/" className='navbar-brand'>Product Cart</Link>
         <div className='ml-auto'>
           <ul className='navbar-nav'>
