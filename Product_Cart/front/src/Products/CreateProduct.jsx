@@ -2,7 +2,7 @@ import Axios  from 'axios';
 import React, { useState,useRef  } from 'react'
 
 const CreateProduct = () => {
-  const [product,setProduct]=useState({name:"",image:"",price:0,qty:0,info:""})
+  const [product,setProduct]=useState({name:"",image:"a",price:0,qty:0,info:""})
   const [imageString, setImageString] = useState('');
   const formRef = useRef(null);
   const addProduct=(evt)=>{
@@ -35,7 +35,7 @@ const CreateProduct = () => {
       reader.onload = (event) => {
         const imageData = event.target.result;
         setImageString(imageData);
-        setProduct({...product,image:imageData})
+        setProduct({...product,image:imageString})
       };
       reader.readAsDataURL(file);
     };

@@ -27,6 +27,7 @@ const Products = () => {
                   <div className="card-body">
                     <h5>{'Name : '+ product.name}</h5>
                     <h5>{'Qty : '+product.qty}</h5>
+                    <h5>{'Price : '+product.price}</h5>
                     <h5>{'Info: '+product.info}</h5>
                   </div>
                  </div>
