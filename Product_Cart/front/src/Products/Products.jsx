@@ -25,9 +25,9 @@ const Products = () => {
                     <img src={product.image} onError={imgHandler} style={{height:"200px"}} />
                   </div>
                   <div className="card-body">
-                    <h5>{product.name}</h5>
-                    <h5>{product.qty}</h5>
-                    <h5>{product.info}</h5>
+                    <h5>{'Name : '+ product.name}</h5>
+                    <h5>{'Qty : '+product.qty}</h5>
+                    <h5>{'Info: '+product.info}</h5>
                   </div>
                  </div>
             </div>
