@@ -3,7 +3,7 @@ import React, { useState,useRef  } from 'react'
 import {useNavigate} from 'react-router-dom'
 
 const CreateProduct = () => {
-  const [product,setProduct]=useState({name:"",image:"",price:0,qty:0,info:""})
+  const [product,setProduct]=useState({name:"",image:"  ",price:0,qty:0,info:""})
   const [imageString, setImageString] = useState('');
   const formRef = useRef(null);
   const navigate = useNavigate()
