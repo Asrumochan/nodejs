@@ -3,7 +3,7 @@ import React, { useState,useRef  } from 'react'
 import {useNavigate} from 'react-router-dom'
 
 const CreateProduct = () => {
-  const [product,setProduct]=useState({name:"",image:"a",price:0,qty:0,info:""})
+  const [product,setProduct]=useState({name:"",image:"",price:0,qty:0,info:""})
   const [imageString, setImageString] = useState('');
   const formRef = useRef(null);
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ const CreateProduct = () => {
       .then((resp)=>{
         console.log(resp.data)
         formRef.current.reset()
-        navigate('/admin')
+        navigate('/products')
       })
       .catch((err)=>{
         console.log(err)
@@ -25,22 +25,15 @@ const CreateProduct = () => {
   }
  
     const handleImageChange = (event) => {
-      const maxSize = 0.1 * 1024 * 1024; // 5MB (adjust as needed)
-  
- 
       const file = event.target.files[0];
-      if (file.size > maxSize) {
-        alert("Please select an image file smaller than 100KB."); // or set an error message
-        return;
-      }
       const reader = new FileReader();
-     
+      reader.readAsDataURL(file);
       reader.onload = (event) => {
         const imageData = event.target.result;
         setImageString(imageData);
+        console.log(imageString)
         setProduct({...product,image:imageString})
       };
-      reader.readAsDataURL(file);
     };
   return (
     <div>
@@ -58,7 +51,7 @@ const CreateProduct = () => {
                   <input className='form-control ' type="text" placeholder='Enter name of the product ' onChange={updateHandler} name="name"/>
                   </div>
                   <div className="form-group mt-4 border border-primary">
-                  <input className='form-control' type="file"  placeholder='Upload File' onChange={handleImageChange} name="image"/>
+                  <input className='form-control' type="file" placeholder='Upload File' onChange={handleImageChange} name="image"/>
                   </div>
                   <div className="form-group mt-4 border border-primary">
                   <input className='form-control' type="number" placeholder='Enter price of the product' onChange={updateHandler} name="price" />
