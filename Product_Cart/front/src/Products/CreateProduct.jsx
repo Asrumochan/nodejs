@@ -1,16 +1,19 @@
 import Axios  from 'axios';
 import React, { useState,useRef  } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const CreateProduct = () => {
   const [product,setProduct]=useState({name:"",image:"a",price:0,qty:0,info:""})
   const [imageString, setImageString] = useState('');
   const formRef = useRef(null);
+  const navigate = useNavigate()
   const addProduct=(evt)=>{
       evt.preventDefault();
       Axios.post("http://127.0.0.1:5000/api/products",product)
       .then((resp)=>{
         console.log(resp.data)
         formRef.current.reset()
+        navigate('/admin')
       })
       .catch((err)=>{
         console.log(err)
@@ -49,13 +52,13 @@ const CreateProduct = () => {
                 <h1>Add Product</h1>
               </div>
               <div className="card-body ">
-                {/* <pre>{JSON.stringify(product)}</pre> */}
+                <pre>{JSON.stringify(product)}</pre>
                 <form className='form' onSubmit={addProduct} ref={formRef} >
                   <div className="form-group mt-4 border border-primary">
                   <input className='form-control ' type="text" placeholder='Enter name of the product ' onChange={updateHandler} name="name"/>
                   </div>
                   <div className="form-group mt-4 border border-primary">
-                  <input className='form-control' type="file" placeholder='Upload File' onChange={handleImageChange} name="image"/>
+                  <input className='form-control' type="file"  placeholder='Upload File' onChange={handleImageChange} name="image"/>
                   </div>
                   <div className="form-group mt-4 border border-primary">
                   <input className='form-control' type="number" placeholder='Enter price of the product' onChange={updateHandler} name="price" />
