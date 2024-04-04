@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "first_name": "Claudian",
+        "last_name": "Ivanov",
+        "email": "civanov0@whitehouse.gov",
+        "gender": "Male",
+        "job_title": "Speech Pathologist"
+    },
+    {
+        "id": 2,
+        "first_name": "Murielle",
+        "last_name": "Iacobacci",
+        "email": "miacobacci1@wordpress.org",
+        "gender": "Female",
+        "job_title": "Cost Accountant"
+    },
+    {
+        "id": 3,
+        "first_name": "Demetria",
+        "last_name": "Gillbe",
+        "email": "dgillbe2@rediff.com",
+        "gender": "Female",
+        "job_title": "GIS Technical Architect"
+    },
+    {
+        "id": 4,
+        "first_name": "Amargo",
+        "last_name": "Joll",
+        "email": "ajoll3@java.com",
+        "gender": "Female",
+        "job_title": "Technical Writer"
+    },
+    {
+        "id": 5,
+        "first_name": "Richie",
+        "last_name": "Chatt",
+        "email": "rchatt4@vk.com",
+        "gender": "Male",
+        "job_title": "Human Resources Assistant IV"
+    },
+    {
+        "id": 6,
+        "first_name": "Ashly",
+        "last_name": "Clabburn",
+        "email": "aclabburn5@trellian.com",
+        "gender": "Polygender",
+        "job_title": "Nurse"
+    },
+    {
+        "id": 7,
+        "first_name": "Welbie",
+        "last_name": "Bickerton",
+        "email": "wbickerton6@ask.com",
+        "gender": "Male",
+        "job_title": "Mechanical Systems Engineer"
+    },
+    {
+        "id": 8,
+        "first_name": "Cinda",
+        "last_name": "Olekhov",
+        "email": "colekhov7@people.com.cn",
+        "gender": "Female",
+        "job_title": "Director of Sales"
+    },
+    {
+        "id": 9,
+        "first_name": "Dreddy",
+        "last_name": "Vaugham",
+        "email": "dvaugham8@behance.net",
+        "gender": "Female",
+        "job_title": "Actuary"
+    },
+    {
+        "id": 10,
+        "first_name": "Brandais",
+        "last_name": "Holdey",
+        "email": "bholdey9@pinterest.com",
+        "gender": "Female",
+        "job_title": "Statistician I"
+    }
+]

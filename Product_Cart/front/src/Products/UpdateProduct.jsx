@@ -63,7 +63,7 @@ const addProduct=(evt)=>{
               </div>
               <div className="form-group mt-4 border border-primary">
               <label>Upload Image</label>
-              <input className='form-control' required type="file" accept='/image*'  onChange={handleImageChange} name="image"/>
+              <input className='form-control' required type="file"   onChange={handleImageChange} name="image"/>
               </div>
               <div className="form-group mt-4 border border-primary">
               <label>Enter Price</label>
