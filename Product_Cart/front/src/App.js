@@ -10,15 +10,15 @@ import Cart from './Products/cart'
 
 const App = () => {
  const [selectedProductId,setSelectedProductId]=useState([])
- const addId=(id)=>{
-  let temp= selectedProductId
-  temp.push(id)
-  setSelectedProductId(temp)
- }
+ const addId = (id) => {
+  if (!selectedProductId.includes(id)) {
+    setSelectedProductId((prevIds) => [...prevIds, id]);
+  }
+};
  return <>
   <Router>
         <nav className='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
-        <Link to="/" className='navbar-brand'>Product Cart</Link>
+        <Link to="/" className='navbar-brand'>E-Commerce</Link>
         <div className='ml-auto'>
           <ul className='navbar-nav'>
             <li><Link  className='nav-link' to="/products">Products</Link></li>
@@ -26,10 +26,12 @@ const App = () => {
             <li><Link  className='nav-link' to="/admin">Admin</Link></li>
           </ul>
         </div>
-        <Link to='/cart'>
-        <FontAwesomeIcon icon={faShoppingCart} style={{ color: 'white' }} />
-        </Link>
-        <p style={{color:"white"}}>{0}</p>
+        <Link to="/cart" className="nav-link">
+          <FontAwesomeIcon icon={faShoppingCart} style={{ color: 'white' }} />
+            </Link>
+        <p style={{ color: 'white', marginLeft: '5px' }}>
+            {selectedProductId.length}
+          </p>
         </nav>
         <Routes>
         <Route path="/products" element={<Products addId={addId}/>} />

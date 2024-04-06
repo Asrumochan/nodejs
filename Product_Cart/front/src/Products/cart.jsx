@@ -43,6 +43,9 @@ const Cart = ({selectedProductId=[]}) => {
   const total = products.reduce((acc, product) => {
     return acc + product.price * product.qty;
   },0);
+  const imgHandler=(evt)=>{
+    evt.target.src="https://media.istockphoto.com/id/1318420912/vector/mock-up-screen-phone.jpg?s=612x612&w=0&k=20&c=z7RTcOE_vnT9eRcSEQhw0EVVRDb9JdDPaApfyO5nFxM="
+   }
   return (
     <div className='container mt-5'>
       <div className="row">
@@ -69,7 +72,7 @@ const Cart = ({selectedProductId=[]}) => {
                   }
                   return <tr key={product._id}>
                           <td>{product.name}</td>
-                          <td><img src={product.image} height='50px' alt="" /></td>
+                          <td><img src={product.image} onError={imgHandler} height='50px' alt="" /></td>
                           <td>{product.price}</td>
                           <td><button className='btn btn-secondary' disabled={flag} onClick={()=>decreaseQuantity(product._id)}>-</button> {product.qty} <button className='btn btn-secondary' onClick={()=>increaseQuantity(product._id)}>+</button> </td>
                           <td>{product.price*product.qty}</td>
@@ -80,7 +83,8 @@ const Cart = ({selectedProductId=[]}) => {
         </table>
         </div>
       </div>
-        <h5>Total  Price: {total}</h5>  
+        <h5>Total  Price: ₹{total}</h5>
+        <h1 className='btn btn-info'>Place Order</h1>  
     </div>
   )
 }
