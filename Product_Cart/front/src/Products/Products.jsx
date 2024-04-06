@@ -2,7 +2,7 @@ import  Axios  from 'axios';
 import React, { useEffect, useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 
-const Products = () => {
+const Products = ({addId}) => {
   let navigate=useNavigate()
    const [products,setProducts]=useState([]);
 
@@ -17,7 +17,7 @@ const Products = () => {
     evt.target.src="https://media.istockphoto.com/id/1318420912/vector/mock-up-screen-phone.jpg?s=612x612&w=0&k=20&c=z7RTcOE_vnT9eRcSEQhw0EVVRDb9JdDPaApfyO5nFxM="
    }
    const addCart=(id)=>{
-        navigate('/cart',{state:id})
+          addId(id)
    }
   return (
     <div className='mt-5'>
