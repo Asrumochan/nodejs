@@ -1,7 +1,9 @@
 import  Axios  from 'axios';
 import React, { useEffect, useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const Products = () => {
+  let navigate=useNavigate()
    const [products,setProducts]=useState([]);
 
    useEffect(()=>{
@@ -13,6 +15,9 @@ const Products = () => {
    },[])
    const imgHandler=(evt)=>{
     evt.target.src="https://media.istockphoto.com/id/1318420912/vector/mock-up-screen-phone.jpg?s=612x612&w=0&k=20&c=z7RTcOE_vnT9eRcSEQhw0EVVRDb9JdDPaApfyO5nFxM="
+   }
+   const addCart=(id)=>{
+        navigate('/cart',{state:id})
    }
   return (
     <div className='mt-5'>
@@ -29,6 +34,7 @@ const Products = () => {
                     <h5>{'Qty : '+product.qty}</h5>
                     <h5>{'Price : '+product.price}</h5>
                     <h5>{'Info: '+product.info}</h5>
+                    <btn className='btn btn-success' onClick={()=>addCart(product._id)}>Add to Cart</btn>
                   </div>
                  </div>
             </div>
