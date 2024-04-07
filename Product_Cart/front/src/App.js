@@ -15,7 +15,7 @@ const App = () => {
     setSelectedProductId((prevIds) => [...prevIds, id]);
   }
 };        
- return <
+ return <>
   <Router>
         <nav className='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
         <Link to="/" className='navbar-brand'>E-Commerce</Link>
