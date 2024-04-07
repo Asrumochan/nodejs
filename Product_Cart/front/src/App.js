@@ -14,7 +14,7 @@ const App = () => {
   if (!selectedProductId.includes(id)) {
     setSelectedProductId((prevIds) => [...prevIds, id]);
   }
-};        
+}   
  return <>
   <Router>
         <nav className='navbar navbar-dark bg-dark navbar-expand-lg fixed-top'>
