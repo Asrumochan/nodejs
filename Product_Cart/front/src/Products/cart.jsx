@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { useEffect, useState,useReducer } from 'react'
 
-const Cart = ({selectedProductId=[]}) => {
+const C art = ({selectedProductId=[]}) => {
   const [products,setProducts]=useState([])
   const increaseQuantity=(id)=>{
       let selectedProduct=products.find((prod)=>{
