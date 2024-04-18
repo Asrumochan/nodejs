@@ -1,9 +1,31 @@
 import express from 'express'
 import fs from "fs"
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
 
 let app=express();
 app.use(bodyParser.json())
+mongoose.connect('mongodb://127.0.0.1:27017/asru')
+.then(()=>{console.log("MongDB connected")})
+.catch((err)=>{console.log(err)
+    process.exit(1)})
+const userSchema = new mongoose.Schema({
+    id:{
+        type:Number,
+        required:true
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    salary:{
+        type:String,
+        required:true
+    }
+})
+
+const User = mongoose.model('user',userSchema)
+
 let getEmployees=()=>{
     let employees=fs.readFileSync("emp.json","utf-8");
     return JSON.parse(employees);
