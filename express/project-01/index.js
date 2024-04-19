@@ -48,14 +48,15 @@ app.post("/create",async (req,resp)=>{
     resp.status(201).send({"msg":"data entered"})
 })
 
-app.put("/read/:id",async (req,resp)=>{
-    const user= await User.findById(req.params._id)
-    resp.send(user)
+app.get("/read/:id",async (req,resp)=>{
+    const user = await User.findById(req.params.id)
+    console.log(user);
+    return resp.send(user)
 })
 
 app.patch("/patch/:id",(req,resp)=>{
     let id=Number(req.params.id);
-    let emp=req.body;
+    let emp=req.body; 
     let prop=Object.keys(emp)[0];
     console.log(prop);
     let val=Object.values(emp)[0];
@@ -80,20 +81,8 @@ app.patch("/patch/:id",(req,resp)=>{
     resp.send({"msg":"data updated"})
 
 })
-app.delete("/delete/:id",(req,resp)=>{
-    let id=Number(req.params.id);
-    let employees=getEmployees();
-
-    let flag=employees.find((employee)=>{
-        return employee.id===id
-    })
-    if(!flag){
-        return resp.send({"msg":"employee does not exist"})
-    }
-    let newEmployees=employees.filter((employee)=>{
-        return employee.id!=id;
-    })
-    saveEmployees(newEmployees);
+app.delete("/delete/:id",async (req,resp)=>{
+    await User.findByIdAndDelete(req.params.id)
     resp.send({"msg":"Employee data deleted"})
 
 })
