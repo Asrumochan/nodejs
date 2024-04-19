@@ -28,6 +28,7 @@ const User = mongoose.model('user',userSchema)
 
 app.get("/read",async (req,resp)=>{
     const allUsers=await User.find({})
+    console.log(allUsers)
     const html=`<ul>
         ${allUsers.map((user)=>`<li>${user.name}</li>`).join('')}
     </ul>`
