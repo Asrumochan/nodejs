@@ -22,29 +22,23 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     }
-})
+},{timestamps:true})
 
 const User = mongoose.model('user',userSchema)
 
-let getEmployees=()=>{
-    let employees=fs.readFileSync("emp.json","utf-8");
-    return JSON.parse(employees);
-}
-let saveEmployees=(employees)=>{
-    fs.writeFile("emp.json",JSON.stringify(employees),(err)=>{
-        if(err) throw err
-    });
-}
-app.get("/read",(req,resp)=>{
-    let employees = getEmployees()
-    resp.send(employees)
+app.get("/read",async (req,resp)=>{
+    const allUsers=await User.find({})
+    const html=`<ul>
+        ${allUsers.map((user)=>`<li>${user.name}</li>`).join('')}
+    </ul>`
+    resp.send(html)
 })
-app.post("/create",(req,resp)=>{
+app.post("/create",async (req,resp)=>{
     let emp=req.body;
     if(!emp.id || !emp.name || !emp.salary){
         return resp.status(400).send({message:"All fields are required"})
     }
-    const result = User.create({
+    const result = await User.create({
         id:emp.id,
         name:emp.name,
         salary:emp.salary
