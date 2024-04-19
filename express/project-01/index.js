@@ -32,7 +32,7 @@ app.get("/read",async (req,resp)=>{
     const html=`<ul>
         ${allUsers.map((user)=>`<li>${user.name}</li>`).join('')}
     </ul>`
-    resp.send(html)
+    resp.send(allUsers)
 })
 app.post("/create",async (req,resp)=>{
     let emp=req.body;
@@ -48,22 +48,9 @@ app.post("/create",async (req,resp)=>{
     resp.status(201).send({"msg":"data entered"})
 })
 
-app.put("/update/:id",(req,resp)=>{
-    let emp=req.body;
-    let id=Number(req.params.id);
-    let employees=getEmployees();   
-    let flag=employees.find((employee)=>{
-        return employee.id===id;
-    })
-    if(!flag){
-        return resp.send({"msg":"empployee does not exist "})
-    }
-    let newEmployees=employees.filter((employee)=>{
-        return employee.id !== id
-    })
-    newEmployees.push(emp)
-    saveEmployees(newEmployees)
-    resp.send({"msg":"data updated"})
+app.put("/read/:id",async (req,resp)=>{
+    const user= await User.findById(req.params._id)
+    resp.send(user)
 })
 
 app.patch("/patch/:id",(req,resp)=>{
