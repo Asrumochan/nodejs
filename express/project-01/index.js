@@ -41,23 +41,19 @@ app.get("/read",(req,resp)=>{
 })
 app.post("/create",(req,resp)=>{
     let emp=req.body;
-    let employees=getEmployees()
-    let flag=employees.find((employee)=>{
-        return employee.name===emp.name
+    const result = User.create({
+        id:emp.id,
+        name:emp.name,
+        salary:emp.salary
     })
-    if(flag){
-       return resp.send({"msg":"Employee already exists"})
-    }
-    employees.push(emp);
-    saveEmployees(employees);
-    resp.send({"msg":"data entered"})
+    console.log(result)
+    resp.status(201).send({"msg":"data entered"})
 })
 
 app.put("/update/:id",(req,resp)=>{
     let emp=req.body;
     let id=Number(req.params.id);
     let employees=getEmployees();   
-
     let flag=employees.find((employee)=>{
         return employee.id===id;
     })
