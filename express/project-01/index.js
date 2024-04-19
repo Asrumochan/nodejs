@@ -10,10 +10,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/asru')
 .catch((err)=>{console.log(err)
     process.exit(1)})
 const userSchema = new mongoose.Schema({
-    id:{
-        type:Number,
-        required:true
-    },
     name:{
         type:String,
         required:true
@@ -36,7 +32,7 @@ app.get("/read",async (req,resp)=>{
 })
 app.post("/create",async (req,resp)=>{
     let emp=req.body;
-    if(!emp.id || !emp.name || !emp.salary){
+    if(!emp.name || !emp.salary){
         return resp.status(400).send({message:"All fields are required"})
     }
     const result = await User.create({
