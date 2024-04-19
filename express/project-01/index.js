@@ -41,6 +41,9 @@ app.get("/read",(req,resp)=>{
 })
 app.post("/create",(req,resp)=>{
     let emp=req.body;
+    if(!emp.id || !emp.name || !emp.salary){
+        return resp.status(400).send({message:"All fields are required"})
+    }
     const result = User.create({
         id:emp.id,
         name:emp.name,
