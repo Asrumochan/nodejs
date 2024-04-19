@@ -54,30 +54,8 @@ app.get("/read/:id",async (req,resp)=>{
     return resp.send(user)
 })
 
-app.patch("/patch/:id",(req,resp)=>{
-    let id=Number(req.params.id);
-    let emp=req.body; 
-    let prop=Object.keys(emp)[0];
-    console.log(prop);
-    let val=Object.values(emp)[0];
-    console.log(val);
-    let employees=getEmployees()
-    let flag=employees.find((employee)=>{
-        return employee.id===id;
-    })
-    if(!flag){
-        return resp.send({"msg":"employee does not exist "})
-    }
-    let newEmployee=employees.filter((employee)=>{
-        return employee.id === id
-    }) 
-    let newEmployees=employees.filter((employee)=>{
-        return employee.id !== id
-    })
-  
-      let newEmployee1={...newEmployee[0],[prop]:val}
-    newEmployees.push(newEmployee1)
-    saveEmployees(newEmployees)
+app.patch("/update/:id",async (req,resp)=>{
+    await User.findByIdAndUpdate(req.params.id,{name:"changed"})
     resp.send({"msg":"data updated"})
 
 })
