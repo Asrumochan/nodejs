@@ -51,7 +51,7 @@ app.get("/read/:id",async (req,resp)=>{
 })
 
 app.patch("/update/:id",async (req,resp)=>{
-    await User.findByIdAndUpdate(req.params.id,{name:"changed"})
+    await User.findByIdAndUpdate(req.params.id,{name:"Gopu"})
     resp.send({"msg":"data updated"})
 
 })
