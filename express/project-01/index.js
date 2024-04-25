@@ -44,7 +44,7 @@ app.post("/create",async (req,resp)=>{
     resp.status(201).send({"msg":"data entered"})
 })
 
-app.get("/r ead/:id",async (req,resp)=>{
+app.get("/read/:id",async (req,resp)=>{
     const user = await User.findById(req.params.id)
     console.log(user);
     return resp.send(user)
