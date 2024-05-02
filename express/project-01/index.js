@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    sala ry:{
+    salary:{
         type:String,
         required:true
     }
