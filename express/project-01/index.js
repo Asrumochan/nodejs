@@ -7,7 +7,7 @@ app.use(bodyParser.json())
 mongoose.connect('mongodb://127.0.0.1:27017/asru')
 .then(()=>{console.log("MongDB connected")})
 .catch((err)=>{console.log(err)
-    proces s.exit(1)})
+    process.exit(1)})
 const userSchema = new mongoose.Schema({
     name:{ 
         type:String,
