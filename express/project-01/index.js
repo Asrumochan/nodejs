@@ -9,7 +9,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/asru')
 .catch((err)=>{console.log(err)
     process.exit(1)})
 const userSchema = new mongoose.Schema({
-    name:{ 
+    name: { 
         type:String,
         required:true
     },
