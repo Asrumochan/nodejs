@@ -43,8 +43,12 @@ app.post('/contacts',async (req,res)=>{
         email:req.body.email,
         mobile:req.body.mobile
     })
+    let contact = await Contact.findOne({name: newContact.name}) 
+    if(contact){
+        return res.status(401).json({msg:"Contact already exists"})
+    }
     
-    let contact = await newContact.save();
+    contact = await newContact.save();
     res.json({msg:'Contact created',contact})
     
 })
